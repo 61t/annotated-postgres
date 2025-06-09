@@ -1,2 +1,2 @@
 # annotated-postgres
-Annotated Postgres Source
+Annotate Postgres Source
