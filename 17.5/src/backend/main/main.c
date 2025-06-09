@@ -51,7 +51,7 @@ static void init_locale(const char *categoryname, int category, const char *loca
 static void help(const char *progname);
 static void check_root(const char *progname);
 
-
+// postgres process 的主函数入口点
 /*
  * Any Postgres server process begins execution here.
  */
@@ -60,7 +60,7 @@ main(int argc, char *argv[])
 {
 	bool		do_check_root = true;
 
-	reached_main = true;
+	reached_main = true; // 标记 main 函数已被调用
 
 	/*
 	 * If supported on the current platform, set up a handler to be called if
@@ -70,12 +70,12 @@ main(int argc, char *argv[])
 	pgwin32_install_crashdump_handler();
 #endif
 
-	progname = get_progname(argv[0]);
+	progname = get_progname(argv[0]); // 获取程序名
 
 	/*
 	 * Platform-specific startup hacks
 	 */
-	startup_hacks(progname);
+	startup_hacks(progname); // 执行平台特定的启动处理
 
 	/*
 	 * Remember the physical location of the initially given argv[] array for
